@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clean.Core.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,8 @@ namespace Clean.Web
     {
         protected void Application_Start()
         {
+            EngineContext.Initialize();
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

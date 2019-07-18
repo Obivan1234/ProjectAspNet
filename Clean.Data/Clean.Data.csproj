@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,11 +49,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CleanBaseContext.cs" />
+    <Compile Include="EfRepository.cs" />
+    <Compile Include="IDbContext.cs" />
+    <Compile Include="Mapping\Temp\TempDomainMap.cs" />
+    <Compile Include="Migrations\201907181135462_Initia migration.cs" />
+    <Compile Include="Migrations\201907181135462_Initia migration.Designer.cs">
+      <DependentUpon>201907181135462_Initia migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907182139194_Add TemoDomain.cs" />
+    <Compile Include="Migrations\201907182139194_Add TemoDomain.Designer.cs">
+      <DependentUpon>201907182139194_Add TemoDomain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201907181135462_Initia migration.resx">
+      <DependentUpon>201907181135462_Initia migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907182139194_Add TemoDomain.resx">
+      <DependentUpon>201907182139194_Add TemoDomain.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Clean.Core\Clean.Core.csproj">
+      <Project>{D870E93D-3D92-455F-9871-E3D24834CDC0}</Project>
+      <Name>Clean.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
