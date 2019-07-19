@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Clean.Web.Localization;
 using System.Web.Routing;
 
 namespace Clean.Web
@@ -12,6 +13,14 @@ namespace Clean.Web
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.MapLocalizedRoute("HomePage",
+                "",
+                new { controller = "Home", action = "Index" },
+                new[] { "Clean.Web.Controllers" }
+                );
+
+
 
             routes.MapRoute(
                 name: "Default",
