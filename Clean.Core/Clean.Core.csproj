@@ -83,6 +83,8 @@
     <Compile Include="Caching\ICacheManager.cs" />
     <Compile Include="Caching\MemoryCacheManager.cs" />
     <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Domain\Localization\Language.cs" />
+    <Compile Include="Domain\Localization\LocalStringResource.cs" />
     <Compile Include="Domain\Temp\TempDomain.cs" />
     <Compile Include="Infrastructure\CleanBaseEngine.cs" />
     <Compile Include="Infrastructure\ContainerManager.cs" />
@@ -96,7 +98,9 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

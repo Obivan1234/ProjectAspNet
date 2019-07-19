@@ -52,6 +52,8 @@
     <Compile Include="CleanBaseContext.cs" />
     <Compile Include="EfRepository.cs" />
     <Compile Include="IDbContext.cs" />
+    <Compile Include="Mapping\Localization\LanguageMap.cs" />
+    <Compile Include="Mapping\Localization\LocalStringResourceMap.cs" />
     <Compile Include="Mapping\Temp\TempDomainMap.cs" />
     <Compile Include="Migrations\201907181135462_Initia migration.cs" />
     <Compile Include="Migrations\201907181135462_Initia migration.Designer.cs">
@@ -60,6 +62,14 @@
     <Compile Include="Migrations\201907182139194_Add TemoDomain.cs" />
     <Compile Include="Migrations\201907182139194_Add TemoDomain.Designer.cs">
       <DependentUpon>201907182139194_Add TemoDomain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907192152328_Add Language and LocalStringResource.cs" />
+    <Compile Include="Migrations\201907192152328_Add Language and LocalStringResource.Designer.cs">
+      <DependentUpon>201907192152328_Add Language and LocalStringResource.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907192209257_Insert Some languages to Language.cs" />
+    <Compile Include="Migrations\201907192209257_Insert Some languages to Language.Designer.cs">
+      <DependentUpon>201907192209257_Insert Some languages to Language.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +84,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907182139194_Add TemoDomain.resx">
       <DependentUpon>201907182139194_Add TemoDomain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907192152328_Add Language and LocalStringResource.resx">
+      <DependentUpon>201907192152328_Add Language and LocalStringResource.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907192209257_Insert Some languages to Language.resx">
+      <DependentUpon>201907192209257_Insert Some languages to Language.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
