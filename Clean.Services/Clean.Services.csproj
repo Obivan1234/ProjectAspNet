@@ -75,6 +75,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Localization\ILanguageService.cs" />
+    <Compile Include="Localization\LanguageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Temp\ITempDomainService.cs" />
     <Compile Include="Temp\TempDomainService.cs" />

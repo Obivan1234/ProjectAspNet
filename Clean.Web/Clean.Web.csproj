@@ -143,6 +143,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\DependecyRegistrar.cs" />
+    <Compile Include="Infrastructure\WebWorkContext.cs" />
     <Compile Include="Localization\LanguageSeoCodeAttribute.cs" />
     <Compile Include="Localization\LocalizatedRouteExtension.cs" />
     <Compile Include="Localization\LocalizedRoute.cs" />

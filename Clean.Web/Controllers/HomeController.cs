@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Clean.Web.Localization;
+using Clean.Services.Localization;
 
 namespace Clean.Web.Controllers
 {
@@ -16,21 +17,25 @@ namespace Clean.Web.Controllers
         #region prop
 
         private readonly ITempDomainService _tempDomainService;
+        private readonly ILanguageService _languageService;
 
         #endregion
 
         #region ctor
 
-        public HomeController(ITempDomainService tempDomainService)
+        public HomeController(ITempDomainService tempDomainService,
+            ILanguageService languageService)
         {
             this._tempDomainService = tempDomainService;
+            this._languageService = languageService;
         }
 
         #endregion
 
         public ActionResult Index()
         {
-            int a = 12;
+            var lang = this._languageService.GetAllLanguages();
+
             return View();
         }
         

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Clean.Core;
+using Clean.Core.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,20 +32,20 @@ namespace Clean.Web.Localization
             var pageUrl = request.RawUrl;
             var applicationPath = request.ApplicationPath;
 
-            //var workContext = EngineContext.Current.Resolve<IWebWorkContext>();
+            var workContext = EngineContext.Current.Resolve<IWebWorkContext>();
 
 
             if (pageUrl.IsLocalizedUrl(applicationPath, true))
             {
                 var code = pageUrl.GetLanguageSeoCodeFromUrl(applicationPath, true);
 
-                if (code == "ua")
+                if (code == workContext.WoorkingLanguage.UniqueSeoCode)
                     return;
                 else
                     pageUrl = pageUrl.RemoveLanguageSeoCodeFromUrl(applicationPath, true);
             }
 
-            pageUrl = pageUrl.AddLanguageSeoCodeToUrl("ua");
+            pageUrl = pageUrl.AddLanguageSeoCodeToUrl(workContext.WoorkingLanguage.UniqueSeoCode);
             filterContext.Result = new RedirectResult(pageUrl, false);
         }
     }

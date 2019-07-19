@@ -1,8 +1,10 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
+using Clean.Core;
 using Clean.Core.Data;
 using Clean.Core.Infrastructure;
 using Clean.Data;
+using Clean.Services.Localization;
 using Clean.Services.Temp;
 
 namespace Clean.Web.Infrastructure
@@ -17,8 +19,9 @@ namespace Clean.Web.Infrastructure
 
             builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
 
-
+            builder.RegisterType<WebWorkContext>().As<IWebWorkContext>().InstancePerLifetimeScope();
             builder.RegisterType<TempDomainService>().As<ITempDomainService>().InstancePerLifetimeScope();
+            builder.RegisterType<LanguageService>().As<ILanguageService>().InstancePerLifetimeScope();
         }
     }
 }
