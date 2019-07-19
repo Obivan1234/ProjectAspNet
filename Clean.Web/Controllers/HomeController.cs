@@ -10,7 +10,7 @@ namespace Clean.Web.Controllers
     {
         public ActionResult Index()
         {
-
+            int a = 12;
             return View();
         }
         
