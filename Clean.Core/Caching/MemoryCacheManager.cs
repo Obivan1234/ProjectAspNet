@@ -8,7 +8,7 @@ using System.Runtime.Caching;
 
 namespace Clean.Core.Caching
 {
-    class MemoryCacheManager : ICacheManager
+    public class MemoryCacheManager : ICacheManager
     {
         protected ObjectCache Cache
         {

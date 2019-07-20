@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Clean.Web.Localization;
 using Clean.Services.Localization;
+using Clean.Core.Domain.Localization;
 
 namespace Clean.Web.Controllers
 {
@@ -18,16 +19,19 @@ namespace Clean.Web.Controllers
 
         private readonly ITempDomainService _tempDomainService;
         private readonly ILanguageService _languageService;
+        private readonly ILocalStringResourceService _lsrService;
 
         #endregion
 
         #region ctor
 
         public HomeController(ITempDomainService tempDomainService,
-            ILanguageService languageService)
+            ILanguageService languageService,
+            ILocalStringResourceService lsrService)
         {
             this._tempDomainService = tempDomainService;
             this._languageService = languageService;
+            this._lsrService = lsrService;
         }
 
         #endregion
@@ -35,6 +39,7 @@ namespace Clean.Web.Controllers
         public ActionResult Index()
         {
             var lang = this._languageService.GetAllLanguages();
+            
 
             return View();
         }
