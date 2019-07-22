@@ -1,0 +1,35 @@
+﻿@model Clean.Core.Domain.Localization.Language
+@using Clean.Core.Domain.Localization
+
+
+<div class="language_s">
+    <span class="globus">
+        <img src="~/Content/img/globe.png" />
+    </span>
+    <span class="language_name">
+        @Model.UniqueSeoCode
+    </span>
+    <span class="CH_swith">
+        <img src="~/Content/img/arrow_down.svg" alt="Alternate Text" />
+    </span>
+</div>
+
+<div class="lang_selector">
+    <div class="triangle_lan"></div>
+    <div class="lang_list">
+        <div class="currend_lang">
+            <input type="radio" value="@Model.Id" hidden />
+            <span>@Model.UniqueSeoCode</span>
+            <span>@Model.Name</span>
+        </div>
+        <div class="cr_hr"></div>
+        @foreach (var item in ViewBag.AllLanguages as IEnumerable<Language>)
+        {
+            <div class="lang_list_element">
+                <input type="radio" value="@item.Id" hidden />
+                <span>@item.UniqueSeoCode</span>
+                <span>@item.Name</span>
+            </div>
+        }
+    </div>
+</div>

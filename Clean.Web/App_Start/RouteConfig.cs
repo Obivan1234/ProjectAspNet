@@ -20,6 +20,12 @@ namespace Clean.Web
                 new[] { "Clean.Web.Controllers" }
                 );
 
+            routes.MapLocalizedRoute("ChangeLang",
+                "changelanguage",
+                new { controller = "Common", action = "SetLanguage" },
+                new[] { "Clean.Web.Controllers" }
+                );
+
 
 
             routes.MapRoute(

@@ -1,0 +1,43 @@
+﻿@Styles.Render("~/Content/cleanBase/root_header.css")
+
+
+<div class="clean_header">
+    <div class="MD_CH">
+        <div class="CH_IconElement">
+            <a href="@Url.RouteUrl("HomePage")">
+
+                <div class="CH_Icons">
+                    <span class="icon_one">
+                        <img src="~/Content/img/homer.png" alt="Alternate Text" />
+                    </span>
+                    <span class="icon_two">
+                    </span>
+                    <span class="icon_three">
+                        <img src="~/Content/img/simpsons.png" alt="Alternate Text" />
+                    </span>
+                </div>
+
+            </a>
+        </div>
+        <div class="CH_SearchElement">
+
+            <input class="CH_SE_Input" placeholder="Search" />
+            <div class="CH_SE_Button" role="button">
+                <span class="glyphicon glyphicon-search CH_SE_Icon">
+                </span>
+                <span>Пошук</span>
+            </div>
+
+        </div>
+        <div class="CH_Navigation">
+
+            <span class="btn btn-default CH_N_Btn" onclick="@Url.Action()">
+                Вихід
+            </span>
+            <span class="CH_lang">
+                @Html.Action("LanguageSelector", "Common")
+            </span>
+        </div>
+    </div>
+</div>
+

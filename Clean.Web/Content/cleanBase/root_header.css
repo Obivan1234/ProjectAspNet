@@ -1,0 +1,209 @@
+﻿
+.clean_header {
+    border-bottom: 1px solid rgba(0,0,0,.0975);
+    background-color: white;
+    width: 100%;
+    height: 77px;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+}
+/*https://tproger.ru/translations/how-css-flexbox-works/*/
+.clean_header , .MD_CH {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.MD_CH {
+    max-width: 1020px;
+    width: 100%;
+    height: 77px;
+    /*padding: 26px 20px;*/
+}
+
+.CH_IconElement {
+    flex: 1 0 0%;
+    display: flex;
+    justify-content: flex-start;
+    min-width: 20px; /*для того щоб при рзширенні контенту нерозширювались сусідні ел*/
+}
+
+.CH_SearchElement {
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: center;
+    width: 220px;
+    height: 28px;
+    position: relative;
+}
+.CH_Navigation {
+    flex: 1 0 0%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.CH_Icons {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+}
+
+.icon_one > img {
+    height: 35px;
+    width: auto;
+}
+
+.icon_two {
+    background-color: black;
+    height: 40px;
+    width: 1px;
+    margin: 0 15px;
+}
+.icon_three > img {
+    width: auto;
+    height: 35px;
+}
+
+.CH_SE_Input {
+    border-radius: 3px;
+    border-style: solid;
+    border-color: #dbdbdb;
+    border-width: 1px;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    padding:3px 20px 3px 25px;
+}
+
+.CH_SE_Button {
+    background: #fafafa;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    border: solid 1px #dbdbdb;
+    border-radius: 3px;
+    color: #999;
+    cursor: text;
+    z-index: 3;
+    padding: 7px;
+    justify-content: center;
+    display: flex;
+    align-items: center
+}
+
+.CH_SE_Icon {
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+.CH_N_Btn {
+    background-color: #3897f0;
+    color: white;
+    font-weight: 600;
+}
+
+.CH_N_C {
+   display:flex;
+   flex-direction:row;
+}
+
+.CH_lang {
+    width: 50px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+
+/*for common languageSelector*/
+
+
+.language_s {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.language_s:hover {
+    background-color: rgba(221,221,221,0.4);
+    border-radius: 5px;
+}
+
+.globus {
+    position: absolute;
+    top: 0px;
+    left: 8px;
+}
+
+.globus > img {
+    height: 15px;
+    width: 15px;
+}
+
+.language_name {
+    position: absolute;
+    left: 8px;
+    top: 15px;
+    font-size: 15px;
+}
+
+.CH_swith {
+    position: absolute;
+    left: 28px;
+    top: 15px;
+}
+
+.CH_swith > img {
+    height: 20px;
+}
+
+.lang_selector {
+    display:none;
+}
+
+.lang_list {
+    cursor: default;
+    background: #2790ff6e;
+    height: auto;
+    width: auto;
+    max-width: 200px;
+    position: absolute;
+    padding: 20px 40px 20px 10px;
+    border-radius: 4px;
+}
+
+.triangle_lan {
+    width: 0;
+    height: 0;
+    margin-left: 10px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #2790ff6e transparent;
+}
+
+.lang_list_element {
+    font-weight: bolder;
+    padding-bottom: 10px;
+}
+
+.currend_lang {
+    font-weight: bolder;
+    color: #e67400;
+}
+
+.cr_hr {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+.lang_list_element:hover {
+    color: white;
+    cursor: pointer;
+}
