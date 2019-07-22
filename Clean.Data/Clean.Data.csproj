@@ -80,9 +80,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppUserManager.cs" />
     <Compile Include="CleanBaseContext.cs" />
     <Compile Include="EfRepository.cs" />
     <Compile Include="IDbContext.cs" />
+    <Compile Include="Mapping\ApplicationUser\RegisterModelMap.cs" />
     <Compile Include="Mapping\Localization\LanguageMap.cs" />
     <Compile Include="Mapping\Localization\LocalStringResourceMap.cs" />
     <Compile Include="Mapping\Temp\TempDomainMap.cs" />
@@ -101,6 +103,18 @@
     <Compile Include="Migrations\201907192209257_Insert Some languages to Language.cs" />
     <Compile Include="Migrations\201907192209257_Insert Some languages to Language.Designer.cs">
       <DependentUpon>201907192209257_Insert Some languages to Language.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907211318316_Add Registration properties.cs" />
+    <Compile Include="Migrations\201907211318316_Add Registration properties.Designer.cs">
+      <DependentUpon>201907211318316_Add Registration properties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907211504363_Add Log In properties.cs" />
+    <Compile Include="Migrations\201907211504363_Add Log In properties.Designer.cs">
+      <DependentUpon>201907211504363_Add Log In properties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907211619049_Add UserName properties.cs" />
+    <Compile Include="Migrations\201907211619049_Add UserName properties.Designer.cs">
+      <DependentUpon>201907211619049_Add UserName properties.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -121,6 +135,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907192209257_Insert Some languages to Language.resx">
       <DependentUpon>201907192209257_Insert Some languages to Language.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907211318316_Add Registration properties.resx">
+      <DependentUpon>201907211318316_Add Registration properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907211504363_Add Log In properties.resx">
+      <DependentUpon>201907211504363_Add Log In properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907211619049_Add UserName properties.resx">
+      <DependentUpon>201907211619049_Add UserName properties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,6 @@
 ﻿using Clean.Core;
+using Clean.Core.Domain.ApplicationUser;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Clean.Data
 {
-    public class CleanBaseContext: DbContext, IDbContext
+    public class CleanBaseContext: IdentityDbContext<ApplicationUser>, IDbContext 
     {
 
         public CleanBaseContext(): base("CleanBase")

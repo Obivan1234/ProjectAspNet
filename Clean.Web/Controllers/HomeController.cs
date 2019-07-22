@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using Clean.Web.Localization;
 using Clean.Services.Localization;
 using Clean.Core.Domain.Localization;
+using Clean.Web.Filter;
+using Clean.Core.Domain.ApplicationUser;
 
 namespace Clean.Web.Controllers
 {
@@ -36,10 +38,10 @@ namespace Clean.Web.Controllers
 
         #endregion
 
+        [UgrinAuthentication]
         public ActionResult Index()
         {
             var lang = this._languageService.GetAllLanguages();
-            
 
             return View();
         }

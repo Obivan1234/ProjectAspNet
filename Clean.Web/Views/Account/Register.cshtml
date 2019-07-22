@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+
+@model Clean.Core.Domain.ApplicationUser.RegisterModel
+
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>@ViewBag.Title - Register</title>
+    @Styles.Render("~/Content/SomeStile.css")
+</head>
+
+<body class="page-content">
+    <div class="form-v8-content">
+        <div class="form-left">
+            <img alt="form" src="~/form-v8.jpg" />
+        </div>
+        <div class="form-right">
+            <div class="tab">
+                <div class="tab-inner">
+                    <button class="tablinks actives" id="defaultOpen" onclick="openCity(event, 'sign-up')">Sign up</button>
+                </div>
+                <div class="tab-inner">
+                    <button class="tablinks" onclick="openCity(event, 'sign-in')">Sign In</button>
+                </div>
+            </div>
+
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-detail", role = "form" }))
+            {
+                <div class="tabcontent" id="sign-up" style="display: block;">
+                    <div class="form-row">
+                        @Html.LabelFor(m => m.UserName)
+                        <div class="form-row-inner">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @required = "" })
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        @Html.LabelFor(m => m.Password)
+                        <div class="form-row-inner">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @required = "" })
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        @Html.LabelFor(m => m.PasswordConfirm)
+                        <div class="form-row-inner">
+                            @Html.PasswordFor(m => m.PasswordConfirm, new { @class = "form-control", @required = "" })
+                        </div>
+                    </div>
+                    <div class="form-row-last">
+                        <input name="register" class="register" type="submit" value="Register" />
+                    </div>
+                </div>
+            }
+
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-detail", role = "form" }))
+            {
+
+                @Html.AntiForgeryToken()
+
+                <div class="tabcontent" id="sign-in" style="display: none;">
+                    <div class="form-row">
+                        @Html.LabelFor(m => m.UserName)
+                        <div class="form-row-inner">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @required = "" })
+                        </div>
+                    </div>
+                   
+                    <div class="form-row">
+                        @Html.LabelFor(m => m.Password)
+                        <div class="form-row-inner">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @required = "" })
+                        </div>
+                    </div>
+                    <div class="form-row-last">
+                        <input name="register" class="register" type="submit" value="Sign in" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <script src="https://www.google-analytics.com/analytics.js" type="text/javascript" async=""></script>
+    <script type="text/javascript">
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" actives", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " actives";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" async=""></script>
+
+</body>
+</html>
+
+
+
+@*<div class="panel panel-primary col-md-6">
+        <div class="panel-heading panel-head">Registration</div>
+        <div class="panel-body">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div>
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Year, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Year, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.PasswordConfirm, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.PasswordConfirm, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Register" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            }
+            <div>
+                @Html.ActionLink("Log in", "Login", "Account")
+            </div>
+        </div>
+    </div>*@
