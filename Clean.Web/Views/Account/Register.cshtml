@@ -1,5 +1,7 @@
 ﻿<!DOCTYPE html>
-
+@{
+    Layout = null;
+}
 @model Clean.Core.Domain.ApplicationUser.RegisterModel
 
 
@@ -65,7 +67,7 @@
                             @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @required = "" })
                         </div>
                     </div>
-                   
+
                     <div class="form-row">
                         @Html.LabelFor(m => m.Password)
                         <div class="form-row-inner">
