@@ -1,0 +1,324 @@
+﻿
+.body_container {
+    position: absolute;
+    top: 77px;
+    left: 0px;
+    display: flex;
+    width: 100%;
+    flex-direction: row; 
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.main_content {
+    max-width: 1200px;
+    width: 100%;
+    padding-top: 80px;
+}
+
+/*https://teamtreehouse.com/community/difference-between-fr-unit-and-auto-value-on-grid-item*/
+.content-container {
+    display: grid;
+    grid-column-gap: 45px;
+    grid-row-gap: 45px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.content-item {
+    width: 100%;
+    height: 290px;
+    background-color: darkblue;
+    position: relative;
+}
+
+.content-item-hover {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.content-item-image {
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.content-item-image > img {
+    height:100%;
+    width:100%;
+}
+
+.user-container {
+    display: flex;
+    justify-content: center;
+    height: 160px;
+    margin-bottom: 40px;
+}
+
+.user-inf {
+    display: flex;
+    width: 100%;
+    max-width: 900px;
+}
+.user-photo {
+    width:160px;
+}
+
+.user-photo > img {
+    height: 100%;
+    width: auto;
+    border-radius: 50%;
+}
+
+.user-descr {
+    margin-left: 60px;
+}
+
+.user-name {
+    font-size: x-large;
+    font-family: monospace;
+}
+
+.user-about {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.user-btn-add {
+    background-color: #3897f0;
+    color: white;
+    font-weight: 600;
+}
+
+/* classes for when click photo*/
+
+.cl-item {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    display:none;
+}
+
+.cl-item-inf {
+    width: 818px;
+    height: 450px;
+    margin: auto;
+    display:flex;
+}
+
+.cl-item-btn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 36px;
+    cursor: pointer;
+    overflow:hidden;
+    z-index: 2;
+    background: 0 0;
+    border: 0;
+}
+
+.cl-item-btn::before {
+    content: '\00D7';
+    display: block;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 36px;
+    padding: 0;
+    margin: 0;
+    color: #fff
+}
+
+.cl-item-photo {
+    width: 70%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+.cl-item-photo > img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+.cl-item-photo-inf {
+    background-color: white;
+    width: 30%;
+    overflow: hidden;
+    position:relative;
+}
+
+.cl-item-photo-inf > .item-title {
+    border-left: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+    height: 72px;
+    padding: 10px;
+    font-size: x-large;
+    font-family: monospace;
+}
+
+.cl-item-photo-inf > hr {
+    margin-top:0px;
+}
+
+.desc {
+    position: absolute;
+    padding: 10px;
+    border-left: 1px solid #efefef;
+    top: 72px;
+    left: 0px;
+    bottom: 0px;
+    overflow-y: scroll;
+    right: -17px;
+}
+
+/*classes for when clik add*/
+.cl-add {
+    position: fixed;
+    background: rgba(0,0,0,0.3);
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    /*display:flex;*/
+    display: none;
+}
+
+.cl-add-form {
+    position: relative;
+    width: 400px;
+    max-height: 600px;
+    overflow-y: auto;
+    background: white;
+    margin: auto;
+    border-radius: 8px;
+    /*background: url(http://coding.dp.ua/wp-content/uploads/2013/06/css-background-radial-gradient-19858.png);*/
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+
+.addImage-form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.addImage-form > label {
+    /*font-family: Andale Mono, monospace;*/
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+#upload {
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.img-url {
+    /*display:none;*/
+}
+
+.img-own {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    border-left: 0;
+    position: relative;
+    overflow: hidden
+}
+
+.inf-own {
+    display:none;
+}
+
+#upload-file-info {
+    display: inline-block;
+    position: absolute;
+    overflow-x: scroll;
+    right: 0px;
+    left: 130px;
+    top: 6px;
+    padding-bottom: 15px;
+}   
+
+
+/* class for loader*/
+.wait-load {
+    display: none;
+    align-items: center;
+    /*display: flex;*/
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+}
+
+.loader,
+.loader:after {
+    border-radius: 50%;
+    width: 10em;
+    height: 10em;
+}
+
+.loader {
+    margin: 60px auto;
+    font-size: 10px;
+    position: relative;
+    text-indent: -9999em;
+    border-top: 1.1em solid rgba(33, 31, 31, 0.2);
+    border-right: 1.1em solid rgba(33, 31, 31, 0.2);
+    border-bottom: 1.1em solid rgba(33, 31, 1, 0.2);
+    border-left: 1.1em solid #ffffff00;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load8 1.1s infinite linear;
+    animation: load8 1.1s infinite linear;
+}
+
+@-webkit-keyframes load8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes load8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+/* end class for loader*/

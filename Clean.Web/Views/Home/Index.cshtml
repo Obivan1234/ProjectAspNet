@@ -3,13 +3,57 @@
     ViewBag.Title = "Home Page";
 }
 
-<h1>Index </h1>
-<h2>Some temp text for something ...</h2>
 
 
 
-<div>
-    @Html.ActionLink("Log  out", "Logout", "Account")
+<div class="main_content">
+    <div class="user-container">
+        <div class="user-inf">
+            <div class="user-photo">
+                <img src="~/Content/img/default-user.png" />
+            </div>
+            <div class="user-descr">
+                <span class="user-name">Uhryn Vasyl</span>
+                <span class="user-about">This  shoud be  information about current user</span>
+                <span class="btn btn-default user-btn-add">
+                    Додати
+                </span>
+            </div>
+        </div>
+    </div>
+    <hr  style="margin-bottom: 40px"/>
+
+    <div class="content-container">
+        <div class="content-item">
+            <div class="content-item-image">
+                <img src="https://www.belightsoft.com/products/imagetricks/img/intro-video-poster@2x.jpg" />
+            </div>
+            <div class="content-item-hover"></div>
+            <div class="information" hidden>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="cl-item">
+        <div class="cl-item-inf">
+            <div class="cl-item-photo">
+               
+            </div>
+            <div class="cl-item-photo-inf">
+                @*<div class="item-title"></div>
+                <div class="desc">
+                    
+                </div>*@
+            </div>
+        </div>
+
+        <button class="cl-item-btn">Закрити</button>
+    </div>
+
+    <div class="cl-add">
+        @Html.Partial("_Form_AddNewItem")
+    </div>
+
 </div>
-
 

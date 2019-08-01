@@ -11,6 +11,7 @@ using Clean.Services.Localization;
 using Clean.Core.Domain.Localization;
 using Clean.Web.Filter;
 using Clean.Core.Domain.ApplicationUser;
+using Clean.Core.Data;
 
 namespace Clean.Web.Controllers
 {
@@ -22,6 +23,7 @@ namespace Clean.Web.Controllers
         private readonly ITempDomainService _tempDomainService;
         private readonly ILanguageService _languageService;
         private readonly ILocalStringResourceService _lsrService;
+        private readonly IRepository<Language> _langRepository;
 
         #endregion
 
@@ -29,11 +31,13 @@ namespace Clean.Web.Controllers
 
         public HomeController(ITempDomainService tempDomainService,
             ILanguageService languageService,
-            ILocalStringResourceService lsrService)
+            ILocalStringResourceService lsrService,
+            IRepository<Language> langRepository)
         {
             this._tempDomainService = tempDomainService;
             this._languageService = languageService;
             this._lsrService = lsrService;
+            this._langRepository = langRepository;
         }
 
         #endregion
@@ -42,6 +46,9 @@ namespace Clean.Web.Controllers
         public ActionResult Index()
         {
             var lang = this._languageService.GetAllLanguages();
+
+            
+            var langs = this._langRepository.Get(null, 1);
 
             return View();
         }

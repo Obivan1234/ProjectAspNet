@@ -187,7 +187,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cleanBase\root_body.css" />
     <Content Include="Content\cleanBase\root_header.css" />
+    <Content Include="Content\img\default-user.png" />
     <Content Include="Content\img\globe.png" />
     <Content Include="Content\img\homer.png" />
     <Content Include="Content\img\simpsons.png" />
@@ -211,6 +213,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\root_site.js" />
+    <Content Include="Scripts\wiki-data.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -230,6 +233,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\UnAuthorized.cshtml" />
+    <Content Include="Views\Shared\_Form_AddNewItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

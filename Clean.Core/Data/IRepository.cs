@@ -20,7 +20,7 @@ namespace Clean.Core.Data
 
         IEnumerable<T> Get();
 
-        IEnumerable<T> Get(Expression<Func<T, bool>> predicate);
+        IEnumerable<T> Get(Expression<Func<T, bool>> predicate, int amount = -1);
 
         IEnumerable<T> GetWithInclude(params Expression<Func<T, object>>[] includeProperties);
 

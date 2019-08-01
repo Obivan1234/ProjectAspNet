@@ -87,6 +87,7 @@
     <Compile Include="Mapping\ApplicationUser\RegisterModelMap.cs" />
     <Compile Include="Mapping\Localization\LanguageMap.cs" />
     <Compile Include="Mapping\Localization\LocalStringResourceMap.cs" />
+    <Compile Include="Mapping\ProductItem\PictureMap.cs" />
     <Compile Include="Mapping\Temp\TempDomainMap.cs" />
     <Compile Include="Migrations\201907181135462_Initia migration.cs" />
     <Compile Include="Migrations\201907181135462_Initia migration.Designer.cs">
@@ -116,6 +117,14 @@
     <Compile Include="Migrations\201907211619049_Add UserName properties.Designer.cs">
       <DependentUpon>201907211619049_Add UserName properties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908011818583_Add Picture.cs" />
+    <Compile Include="Migrations\201908011818583_Add Picture.Designer.cs">
+      <DependentUpon>201908011818583_Add Picture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908011955454_Add MimeType to picture.cs" />
+    <Compile Include="Migrations\201908011955454_Add MimeType to picture.Designer.cs">
+      <DependentUpon>201908011955454_Add MimeType to picture.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -144,6 +153,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907211619049_Add UserName properties.resx">
       <DependentUpon>201907211619049_Add UserName properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908011818583_Add Picture.resx">
+      <DependentUpon>201908011818583_Add Picture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908011955454_Add MimeType to picture.resx">
+      <DependentUpon>201908011955454_Add MimeType to picture.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

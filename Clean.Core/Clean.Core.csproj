@@ -117,6 +117,7 @@
     <Compile Include="Domain\ApplicationUser\ApplicationUser.cs" />
     <Compile Include="Domain\ApplicationUser\LoginModel.cs" />
     <Compile Include="Domain\ApplicationUser\RegisterModel.cs" />
+    <Compile Include="Domain\ProductItem\Picture.cs" />
     <Compile Include="Domain\Localization\Language.cs" />
     <Compile Include="Domain\Localization\LocalStringResource.cs" />
     <Compile Include="Domain\Temp\TempDomain.cs" />

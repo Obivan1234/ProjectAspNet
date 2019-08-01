@@ -42,9 +42,16 @@ namespace Clean.Data
             return this._entities.AsNoTracking().ToList();
         }
 
-        public IEnumerable<T> Get(Expression<Func<T, bool>> predicate)
+        public IEnumerable<T> Get(Expression<Func<T, bool>> predicate, int amount = -1)
         {
-            return this._entities.AsNoTracking().Where(predicate).ToList();
+            var result = this._entities.AsNoTracking();
+           
+            if (predicate != null)
+                result = result.Where(predicate);
+            if (amount > 0)
+                result = result.Take(amount);
+
+            return result.ToList();
         }
 
         public T GetById(int id)

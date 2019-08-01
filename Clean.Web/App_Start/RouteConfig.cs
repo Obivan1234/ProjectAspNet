@@ -26,6 +26,7 @@ namespace Clean.Web
                 new[] { "Clean.Web.Controllers" }
                 );
 
+            
             routes.MapLocalizedRoute("Logout",
                 "logout",
                 new { controller = "Account", action = "Logout" }, 

@@ -1,6 +1,9 @@
 ﻿using Clean.Core;
+using Clean.Core.Domain.ProductItem;
 using Clean.Services.Localization;
+using Clean.Services.ProductItem;
 using Clean.Web.Localization;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,17 +15,26 @@ namespace Clean.Web.Controllers
     [LanguageSeoCode]
     public class CommonController : Controller
     {
+        #region prop
+
         private readonly IWebWorkContext _webWorkContext;
         private readonly ILanguageService _languageService;
+        private readonly IPictureService _pictureService;
 
+        #endregion
+
+        #region ctor
 
         public CommonController(IWebWorkContext webWorkContext,
-            ILanguageService languageService)
+            ILanguageService languageService,
+            IPictureService pictureService)
         {
             this._webWorkContext = webWorkContext;
             this._languageService = languageService;
+            this._pictureService = pictureService;
         }
 
+        #endregion
 
         public ActionResult LanguageSelector()
         {
@@ -43,6 +55,16 @@ namespace Clean.Web.Controllers
 
             return Json(new { StatusCode = 200 }, JsonRequestBehavior.AllowGet);
 
+        }
+
+        [HttpPost]
+        public JsonResult AddNewItem(string img64, string mimeType, string description) {
+            
+            byte[] imgBinary = Convert.FromBase64String(img64);
+
+            this._pictureService.InsertPicture(new Picture() { PictureBinary = imgBinary, Description = description, MimeType = mimeType });
+            
+            return Json(new { StatusCode = 200 }, JsonRequestBehavior.AllowGet);
         }
 
     }

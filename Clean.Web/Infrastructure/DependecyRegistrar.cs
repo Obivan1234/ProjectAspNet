@@ -6,6 +6,7 @@ using Clean.Core.Data;
 using Clean.Core.Infrastructure;
 using Clean.Data;
 using Clean.Services.Localization;
+using Clean.Services.ProductItem;
 using Clean.Services.Temp;
 using System.Runtime.Caching.Hosting;
 
@@ -26,6 +27,7 @@ namespace Clean.Web.Infrastructure
             builder.RegisterType<LanguageService>().As<ILanguageService>().InstancePerLifetimeScope();
             builder.RegisterType<MemoryCacheManager>().As<ICacheManager>().InstancePerLifetimeScope();
             builder.RegisterType<LocalStringResourceService>().As<ILocalStringResourceService>().InstancePerLifetimeScope();
+            builder.RegisterType<PictureService>().As<IPictureService>().InstancePerLifetimeScope();
         }
     }
 }
