@@ -29,12 +29,6 @@
     <div class="content-container">
         @foreach (var item in Model)
         {
-            @*<div class="img-thumbnail" style="margin: 10px">
-                    @Html.Raw("<img style='width:330px; height:310px; margin: 5px;' src=\"data:image/jpeg;base64,"
-                                                                              + Convert.ToBase64String(item.PictureBinary) + "\" />")
-                </div>*@
-
-            //<div class="content-container">
                 <div class="content-item">
                     <div class="content-item-image">
                         @Html.Raw("<img  src=\"data:image/jpeg;base64,"
@@ -42,10 +36,9 @@
                     </div>
                     <div class="content-item-hover"></div>
                     <div class="information" hidden>
-
+                        @Html.Raw(item.Description)
                     </div>
                 </div>
-            //</div>
 
             <div class="cl-item">
                 <div class="cl-item-inf">
