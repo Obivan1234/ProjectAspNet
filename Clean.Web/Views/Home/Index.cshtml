@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<Clean.Core.Domain.ProductItem.Picture>
+
 @{
     ViewBag.Title = "Home Page";
 }
@@ -21,35 +22,53 @@
             </div>
         </div>
     </div>
-    <hr  style="margin-bottom: 40px"/>
+    <hr style="margin-bottom: 40px" />
 
+
+    @*<div class="container" style="padding-top: 60px">*@
     <div class="content-container">
-        <div class="content-item">
-            <div class="content-item-image">
-                <img src="https://www.belightsoft.com/products/imagetricks/img/intro-video-poster@2x.jpg" />
-            </div>
-            <div class="content-item-hover"></div>
-            <div class="information" hidden>
-                
-            </div>
-        </div>
-    </div>
-
-    <div class="cl-item">
-        <div class="cl-item-inf">
-            <div class="cl-item-photo">
-               
-            </div>
-            <div class="cl-item-photo-inf">
-                @*<div class="item-title"></div>
-                <div class="desc">
-                    
+        @foreach (var item in Model)
+        {
+            @*<div class="img-thumbnail" style="margin: 10px">
+                    @Html.Raw("<img style='width:330px; height:310px; margin: 5px;' src=\"data:image/jpeg;base64,"
+                                                                              + Convert.ToBase64String(item.PictureBinary) + "\" />")
                 </div>*@
-            </div>
-        </div>
 
-        <button class="cl-item-btn">Закрити</button>
+            //<div class="content-container">
+                <div class="content-item">
+                    <div class="content-item-image">
+                        @Html.Raw("<img  src=\"data:image/jpeg;base64,"
+                                                                + Convert.ToBase64String(item.PictureBinary) + "\" />")
+                    </div>
+                    <div class="content-item-hover"></div>
+                    <div class="information" hidden>
+
+                    </div>
+                </div>
+            //</div>
+
+            <div class="cl-item">
+                <div class="cl-item-inf">
+                    <div class="cl-item-photo">
+
+                    </div>
+                    <div class="cl-item-photo-inf">
+                        @*<div class="item-title"></div>
+                            <div class="desc">
+
+                            </div>*@
+                    </div>
+                </div>
+
+                <button class="cl-item-btn">Закрити</button>
+            </div>
+
+        }
     </div>
+
+    @*</div>*@
+
+
 
     <div class="cl-add">
         @Html.Partial("_Form_AddNewItem")

@@ -12,6 +12,7 @@ using Clean.Core.Domain.Localization;
 using Clean.Web.Filter;
 using Clean.Core.Domain.ApplicationUser;
 using Clean.Core.Data;
+using Clean.Services.ProductItem;
 
 namespace Clean.Web.Controllers
 {
@@ -24,6 +25,7 @@ namespace Clean.Web.Controllers
         private readonly ILanguageService _languageService;
         private readonly ILocalStringResourceService _lsrService;
         private readonly IRepository<Language> _langRepository;
+        private readonly IPictureService _pictureService;
 
         #endregion
 
@@ -32,12 +34,14 @@ namespace Clean.Web.Controllers
         public HomeController(ITempDomainService tempDomainService,
             ILanguageService languageService,
             ILocalStringResourceService lsrService,
-            IRepository<Language> langRepository)
+            IRepository<Language> langRepository,
+            IPictureService pictureService)
         {
             this._tempDomainService = tempDomainService;
             this._languageService = languageService;
             this._lsrService = lsrService;
             this._langRepository = langRepository;
+            this._pictureService = pictureService;
         }
 
         #endregion
@@ -50,7 +54,9 @@ namespace Clean.Web.Controllers
             
             var langs = this._langRepository.Get(null, 1);
 
-            return View();
+            var images = this._pictureService.GetAllPictures();
+
+            return View(images);
         }
         
     }

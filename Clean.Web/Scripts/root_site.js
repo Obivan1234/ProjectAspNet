@@ -224,7 +224,7 @@ $(document).ready(function () {
                     success: function (result) {
 
 
-                        let imgSrc = "data:" + sendData.mimeType + ";base64," + sendData.img64;
+                        let imgSrc = "data:image/" + sendData.mimeType + ";base64," + sendData.img64;
 
                         $(".content-container").append(
                             '<div class="content-item">' +
