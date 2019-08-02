@@ -16,5 +16,7 @@ namespace Clean.Services.ProductItem
 
         void InsertPicture(Picture picture);
 
+        IEnumerable<Picture> GetPicturesByUserId(object id);
+
     }
 }

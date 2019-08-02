@@ -79,9 +79,9 @@ namespace Clean.Web.Controllers
 
             var model = _loginModelService.GetAllLogins().FirstOrDefault();
 
-            ApplicationUser applicationuser = await UserManager.FindAsync(model.UserName, model.Password);
+            ApplicationUser appUser = await UserManager.FindAsync(model.UserName, model.Password);
 
-            var images = this._pictureService.GetAllPictures().Where(zs => zs.ApplicationUserMyId == applicationuser.Id).OrderByDescending(zk => zk.Id);
+            var images = this._pictureService.GetPicturesByUserId(appUser.Id).OrderByDescending(zk => zk.Id);
 
             return View(images);
         }

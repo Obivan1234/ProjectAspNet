@@ -29,34 +29,34 @@
     <div class="content-container">
         @foreach (var item in Model)
         {
-                <div class="content-item">
-                    <div class="content-item-image">
-                        @Html.Raw("<img  src=\"data:image/jpeg;base64,"
-                                                                + Convert.ToBase64String(item.PictureBinary) + "\" />")
-                    </div>
-                    <div class="content-item-hover"></div>
-                    <div class="information" hidden>
-                        @Html.Raw(item.Description)
-                    </div>
+            <div class="content-item">
+                <div class="content-item-image">
+                    @Html.Raw("<img  src=\"data:image/jpeg;base64,"
+                                                              + Convert.ToBase64String(item.PictureBinary) + "\" />")
                 </div>
-
-            <div class="cl-item">
-                <div class="cl-item-inf">
-                    <div class="cl-item-photo">
-
-                    </div>
-                    <div class="cl-item-photo-inf">
-                        @*<div class="item-title"></div>
-                            <div class="desc">
-
-                            </div>*@
-                    </div>
+                <div class="content-item-hover"></div>
+                <div class="information" hidden>
+                    @Html.Raw(item.Description)
                 </div>
+            </div>
+        }
 
-                <button class="cl-item-btn">Закрити</button>
+        <div class="cl-item">
+            <div class="cl-item-inf">
+                <div class="cl-item-photo">
+
+                </div>
+                <div class="cl-item-photo-inf">
+                    @*<div class="item-title"></div>
+                    <div class="desc">
+
+                    </div>*@
+                </div>
             </div>
 
-        }
+            <button class="cl-item-btn">Закрити</button>
+        </div>
+
     </div>
 
     @*</div>*@

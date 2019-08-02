@@ -22,6 +22,11 @@ namespace Clean.Services.ProductItem
             return _picRepository.Get();
         }
 
+        public IEnumerable<Picture> GetPicturesByUserId(object id)
+        {
+            return _picRepository.Get(p => p.ApplicationUserMyId == (string)id);
+        }
+
         public void InsertPicture(Picture picture)
         {
             _picRepository.Insert(picture);
