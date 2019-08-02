@@ -5,6 +5,7 @@ using Clean.Core.Caching;
 using Clean.Core.Data;
 using Clean.Core.Infrastructure;
 using Clean.Data;
+using Clean.Services.ApplicationUser;
 using Clean.Services.Localization;
 using Clean.Services.ProductItem;
 using Clean.Services.Temp;
@@ -28,6 +29,7 @@ namespace Clean.Web.Infrastructure
             builder.RegisterType<MemoryCacheManager>().As<ICacheManager>().InstancePerLifetimeScope();
             builder.RegisterType<LocalStringResourceService>().As<ILocalStringResourceService>().InstancePerLifetimeScope();
             builder.RegisterType<PictureService>().As<IPictureService>().InstancePerLifetimeScope();
+            builder.RegisterType<LoginModelService>().As<ILoginModelService>().InstancePerLifetimeScope();
         }
     }
 }

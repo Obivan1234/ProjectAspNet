@@ -1,6 +1,7 @@
 ﻿using Clean.Core.Domain;
 using Clean.Core.Domain.ApplicationUser;
 using Clean.Data;
+using Clean.Services.ApplicationUser;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -17,6 +18,13 @@ namespace Clean.Web.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly ILoginModelService loginModelService;
+
+        public AccountController(ILoginModelService loginModelService)
+        {
+            this.loginModelService = loginModelService;
+        }
+
         private AppUserManager UserManager
         {
             get
@@ -46,6 +54,7 @@ namespace Clean.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 ApplicationUser user = await UserManager.FindAsync(model.UserName, model.Password);
                 if (user == null)
                 {
@@ -54,7 +63,13 @@ namespace Clean.Web.Controllers
                 }
                 else
                 {
+
                     ClaimsIdentity claim = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+
+                    loginModelService.InsertLogin(model);
+
+                    // model.
+
                     AuthenticationManager.SignOut();
                     AuthenticationManager.SignIn(new AuthenticationProperties
                     {
@@ -71,7 +86,15 @@ namespace Clean.Web.Controllers
 
         public ActionResult Logout()
         {
+            var model = loginModelService.GetAllLogins().First().Id;
+
+            var item = loginModelService.GetById(model);
+
+
+
+            loginModelService.Delete(item);
             AuthenticationManager.SignOut();
+
             return RedirectToAction("Register");
         }
 
@@ -90,6 +113,7 @@ namespace Clean.Web.Controllers
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+
                     return RedirectToAction("Register", "Account");
                 }
                 else

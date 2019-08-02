@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Clean.Core.Domain.ApplicationUser
 {
-    public class LoginModel
+    public class LoginModel : BaseEntity
     {
 
         [Required]

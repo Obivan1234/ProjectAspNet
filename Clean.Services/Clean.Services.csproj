@@ -106,6 +106,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationUser\ILoginModelService.cs" />
+    <Compile Include="ApplicationUser\LoginModelService.cs" />
     <Compile Include="Localization\ILanguageService.cs" />
     <Compile Include="Localization\ILocalStringResourceService.cs" />
     <Compile Include="Localization\LanguageService.cs" />

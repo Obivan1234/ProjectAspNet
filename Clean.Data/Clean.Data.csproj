@@ -84,6 +84,7 @@
     <Compile Include="CleanBaseContext.cs" />
     <Compile Include="EfRepository.cs" />
     <Compile Include="IDbContext.cs" />
+    <Compile Include="Mapping\ApplicationUser\LoginModelMap.cs" />
     <Compile Include="Mapping\ApplicationUser\RegisterModelMap.cs" />
     <Compile Include="Mapping\Localization\LanguageMap.cs" />
     <Compile Include="Mapping\Localization\LocalStringResourceMap.cs" />
@@ -125,6 +126,10 @@
     <Compile Include="Migrations\201908011955454_Add MimeType to picture.Designer.cs">
       <DependentUpon>201908011955454_Add MimeType to picture.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908020336022_Add LogIn model to database.cs" />
+    <Compile Include="Migrations\201908020336022_Add LogIn model to database.Designer.cs">
+      <DependentUpon>201908020336022_Add LogIn model to database.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -159,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908011955454_Add MimeType to picture.resx">
       <DependentUpon>201908011955454_Add MimeType to picture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908020336022_Add LogIn model to database.resx">
+      <DependentUpon>201908020336022_Add LogIn model to database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -226,7 +226,7 @@ $(document).ready(function () {
 
                         let imgSrc = "data:" + sendData.mimeType + ";base64," + sendData.img64;
 
-                        $(".content-container").append(
+                        $(".content-container").prepend(
                             '<div class="content-item">' +
                             '<div class="content-item-image">' +
                             '<img src="' + imgSrc + '" />' +

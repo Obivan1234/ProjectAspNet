@@ -17,6 +17,10 @@ namespace Clean.Data.Mapping.ProductItem
             this.Property(p => p.PictureBinary).IsRequired();
             this.Property(p => p.Description).IsRequired();
             this.Property(p => p.MimeType).IsRequired().HasMaxLength(50);
+
+            this.HasOptional(p => p.ApplicationUser)
+                .WithMany(z => z.photos)
+                .HasForeignKey(k => k.ApplicationUserMyId);
         }
     }
 }
