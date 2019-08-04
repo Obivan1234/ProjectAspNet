@@ -13,12 +13,12 @@
     @Styles.Render("~/Content/SomeStile.css")
 </head>
 
-<body class="page-content">
-    <div class="form-v8-content">
-        <div class="form-left">
-            <img alt="form" src="~/form-v8.jpg" />
+<body class="page-content" style="background-image:-webkit-linear-gradient( 136deg, rgb(0,0,0) 0%, rgb(86,52,0) 100%)">
+    <div class="form-v8-content" style="background:#fff0">
+        <div class="form-left" style="margin-bottom:-4px">
+            <img alt="form" height="588" width="469" src="~/RegPic.jpg" />
         </div>
-        <div class="form-right">
+        <div class="form-right" style="background: #352400">
             <div class="tab">
                 <div class="tab-inner">
                     <button class="tablinks actives" id="defaultOpen" onclick="openCity(event, 'sign-up')">Sign up</button>
@@ -105,52 +105,3 @@
 
 </body>
 </html>
-
-
-
-@*<div class="panel panel-primary col-md-6">
-        <div class="panel-heading panel-head">Registration</div>
-        <div class="panel-body">
-            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-
-                <div>
-                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Year, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.Year, new { @class = "form-control" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.PasswordConfirm, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.PasswordFor(m => m.PasswordConfirm, new { @class = "form-control" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Register" class="btn btn-success" />
-                        </div>
-                    </div>
-                </div>
-            }
-            <div>
-                @Html.ActionLink("Log in", "Login", "Account")
-            </div>
-        </div>
-    </div>*@

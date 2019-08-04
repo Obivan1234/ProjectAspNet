@@ -72,12 +72,17 @@ namespace Clean.Web.Controllers
         [UgrinAuthentication]
         public async Task<ActionResult> Index()
         {
-            var lang = this._languageService.GetAllLanguages();
 
-            
+            var lang = this._languageService.GetAllLanguages();
+           
             var langs = this._langRepository.Get(null, 1);
 
             var model = _loginModelService.GetAllLogins().FirstOrDefault();
+
+            //if (model == null)
+            //{
+            //    return View("~/Views/Account/Register.cshtml");
+            //}
 
             ApplicationUser appUser = await UserManager.FindAsync(model.UserName, model.Password);
 

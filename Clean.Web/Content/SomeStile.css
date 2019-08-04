@@ -5,9 +5,9 @@
 .page-content {
     width: 100%;
     margin: 0 auto;
-    background-image: -moz-linear-gradient( 136deg, rgb(0,158,253) 0%, rgb(42,245,152) 100%);
-    background-image: -webkit-linear-gradient( 136deg, rgb(0,158,253) 0%, rgb(42,245,152) 100%);
-    background-image: -ms-linear-gradient( 136deg, rgb(0,158,253) 0%, rgb(42,245,152) 100%);
+    background-image: -moz-linear-gradient( 136deg, rgb(0,0,0) 0%, rgb(86,52,0) 100%);
+    background-image: -webkit-linear-gradient( 136deg, rgb(0,0,0) 0%, rgb(86,52,0) 100%);
+    background-image: -ms-linear-gradient( 136deg, rgb(0,0,0) 0%, rgb(86,52,0) 100%);
     display: flex;
     display: -webkit-flex;
     justify-content: center;
@@ -22,8 +22,8 @@
     -webkit-align-items: center;
 }
 
+
 .form-v8-content {
-    background: #fff;
     width: 937px;
     border-radius: 8px;
     -o-border-radius: 8px;
@@ -44,7 +44,7 @@
 }
 
 .form-v8-content .form-left {
-    margin-bottom: 0;
+    margin-bottom: -4px;
 }
 
 img {
@@ -56,7 +56,7 @@ img {
     padding: 30px 0;
     position: relative;
     width: 100%;
-    background: #3d5983;
+    /*background: #2b200a;*/
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
@@ -98,7 +98,7 @@ img {
 .form-v8-content .tab .tablinks.actives {
     font-weight: 700;
     color: #fff;
-    border-bottom-color: #30e1df;
+    border-bottom-color: #8e4a10;
 }
 
 .form-v8-content .form-detail {
@@ -214,7 +214,7 @@ img {
     -webkit-border-radius: 5px;
     width: 160px;
     border: none;
-    margin: 5px 0 50px 0px;
+    margin: 5px 0px 50px 0px;
     cursor: pointer;
     font-family: 'Source Sans Pro', sans-serif;
     color: #333;
