@@ -67,6 +67,11 @@ namespace Clean.Web.Controllers
             this._loginModelService = loginModelService;
         }
 
+        //public HomeController(IPictureService pictureService)
+        //{
+        //    this._pictureService = pictureService;
+        //}
+
         #endregion
 
         [UgrinAuthentication]
@@ -74,7 +79,7 @@ namespace Clean.Web.Controllers
         {
 
             var lang = this._languageService.GetAllLanguages();
-           
+
             var langs = this._langRepository.Get(null, 1);
 
             var model = _loginModelService.GetAllLogins().FirstOrDefault();
@@ -86,7 +91,7 @@ namespace Clean.Web.Controllers
 
             ApplicationUser appUser = await UserManager.FindAsync(model.UserName, model.Password);
 
-            var images = this._pictureService.GetPicturesByUserId(appUser.Id).OrderByDescending(zk => zk.Id);
+            var images = this._pictureService.GetPicturesByUserId(appUser.Id).OrderByDescending(p => p.Id);
 
             return View(images);
         }

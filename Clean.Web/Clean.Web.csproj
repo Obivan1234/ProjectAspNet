@@ -192,6 +192,7 @@
     <Content Include="Content\img\default-user.png" />
     <Content Include="Content\img\globe.png" />
     <Content Include="Content\img\homer.png" />
+    <Content Include="Content\img\RegPic.jpg" />
     <Content Include="Content\img\simpsons.png" />
     <Content Include="Content\img\arrow_down.svg" />
     <Content Include="Content\SomeStile.css" />
