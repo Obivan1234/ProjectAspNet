@@ -1,4 +1,5 @@
-﻿using Clean.Core.Domain.ProductItem;
+﻿using Clean.Core.Data;
+using Clean.Core.Domain.ProductItem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,9 @@ namespace Clean.Services.ProductItem
 
         void InsertPicture(Picture picture);
 
-        IEnumerable<Picture> GetPicturesByUserId(object id);
+        IEnumerable<Picture> GetPicturesByUserIdAsc(object id, int amount = -1, int? startFrom = null);
+
+        IEnumerable<Picture> GetPicturesByUserIdDesc(object id, int amount = -1, int? startFrom = null);
 
     }
 }

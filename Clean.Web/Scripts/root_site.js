@@ -1,6 +1,15 @@
 ﻿
 $(document).ready(function () {
 
+    let options = {
+        itemPerPage: 4,
+        minIdOfItems: $('input[name="minItemsId"]').val()
+    };
+
+    let isAllContantLoaded = false;
+
+    // $(document).on and $(document).scroll are same as $(window).on and $(window).scroll 
+
     $(document).on('click', function (e) {
 
         //перевіряєм, якщо ми клікнули десь на сторінці і в нас розгорнутий список  мов то згорнути їх
@@ -25,6 +34,12 @@ $(document).ready(function () {
 
         if (clickedAddPhotoContainer.is(e.target))
             $(".cl-add").hide();
+
+    });
+
+    $(document).scroll(function () {
+
+        updateContentWhenScrollToBottom();
 
     });
 
@@ -64,6 +79,7 @@ $(document).ready(function () {
     $(document).on('mouseenter', '.content-item', function() {
         $(".content-item-hover", this).show();
     });
+
     $(document).on('mouseleave', '.content-item', function () {
         $(".content-item-hover", this).hide();
     });
@@ -269,6 +285,45 @@ $(document).ready(function () {
 
     }
     
-    
+    function updateContentWhenScrollToBottom() {
+
+        if ($(window).scrollTop() === $(document).height() - $(window).height()) {
+
+            if (isAllContantLoaded)
+                return;
+
+            $('.bottom-load').show();
+
+            //$(window).scrollTop($(document).height());
+
+            $.ajax({
+                url: "Common/AllItemPageProducts",
+                type: 'post',
+                data: options,
+                success: function (data) {
+
+                    if (data.StatusCode === 200) {
+
+                        $(".content-container").append(data.Content);
+
+                        isAllContantLoaded = data.AllContantLoaded;
+
+                        if (data.MinItemsId > 0)
+                            options.minIdOfItems = data.MinItemsId;
+
+                        $('.bottom-load').hide();
+                    }
+                }
+
+            }).fail(function (jqXHR, status, errorThrown) {
+                console.log(jqXHR.responseText);
+                console.log(status);
+                console.log(errorThrown);
+            });
+
+        }
+
+    }
+
 });
 

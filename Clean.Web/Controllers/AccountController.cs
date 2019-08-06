@@ -16,7 +16,7 @@ using System.Web.Security;
 
 namespace Clean.Web.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private readonly ILoginModelService loginModelService;
 

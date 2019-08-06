@@ -261,6 +261,11 @@
 
 
 /* class for loader*/
+
+.bottom-load {
+    display:none;
+}
+
 .wait-load {
     display: none;
     align-items: center;

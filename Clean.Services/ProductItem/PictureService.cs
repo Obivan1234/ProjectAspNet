@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Clean.Core.Data;
@@ -22,9 +23,28 @@ namespace Clean.Services.ProductItem
             return _picRepository.Get();
         }
 
-        public IEnumerable<Picture> GetPicturesByUserId(object id)
+        public IEnumerable<Picture> GetPicturesByUserIdAsc(object id, int amount = -1, int? startFrom = null)
         {
-            return _picRepository.Get(p => p.ApplicationUserMyId == (string)id);
+            if (startFrom != null)
+            {
+                return _picRepository.Get(p => p.ApplicationUserMyId == (string)id && p.Id > startFrom, amount, ItemOrderBy.Asc);
+            }
+            else
+            {
+                return _picRepository.Get(p => p.ApplicationUserMyId == (string)id, amount, ItemOrderBy.Asc);
+            }
+        }
+
+        public IEnumerable<Picture> GetPicturesByUserIdDesc(object id, int amount = -1, int? startFrom = null)
+        {
+            if (startFrom != null)
+            {
+                return _picRepository.Get(p => (p.ApplicationUserMyId == (string)id) && p.Id < startFrom, amount, ItemOrderBy.Desc);
+            }
+            else
+            {
+                return _picRepository.Get(p => p.ApplicationUserMyId == (string)id, amount, ItemOrderBy.Desc);
+            }
         }
 
         public void InsertPicture(Picture picture)

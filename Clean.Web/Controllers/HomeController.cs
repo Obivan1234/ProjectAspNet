@@ -21,7 +21,7 @@ using System.Threading.Tasks;
 namespace Clean.Web.Controllers
 {
     [LanguageSeoCode]
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         #region prop
 
@@ -91,7 +91,7 @@ namespace Clean.Web.Controllers
 
             ApplicationUser appUser = await UserManager.FindAsync(model.UserName, model.Password);
 
-            var images = this._pictureService.GetPicturesByUserId(appUser.Id).OrderByDescending(p => p.Id);
+            var images = this._pictureService.GetPicturesByUserIdDesc(appUser.Id, 8);
 
             return View(images);
         }

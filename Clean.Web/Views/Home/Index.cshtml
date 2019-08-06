@@ -4,7 +4,7 @@
     ViewBag.Title = "Home Page";
 }
 
-
+@Html.Hidden("minItemsId",Model.Min(p=>p.Id))
 
 
 <div class="main_content">
@@ -25,21 +25,8 @@
     <hr style="margin-bottom: 40px" />
 
 
-    @*<div class="container" style="padding-top: 60px">*@
     <div class="content-container">
-        @foreach (var item in Model)
-        {
-            <div class="content-item">
-                <div class="content-item-image">
-                    @Html.Raw("<img  src=\"data:image/jpeg;base64,"
-                                                              + Convert.ToBase64String(item.PictureBinary) + "\" />")
-                </div>
-                <div class="content-item-hover"></div>
-                <div class="information" hidden>
-                    @Html.Raw(item.Description)
-                </div>
-            </div>
-        }
+       @Html.Partial("_Sliced_Item", Model)
 
         <div class="cl-item">
             <div class="cl-item-inf">
@@ -48,9 +35,7 @@
                 </div>
                 <div class="cl-item-photo-inf">
                     @*<div class="item-title"></div>
-                    <div class="desc">
-
-                    </div>*@
+                    <div class="desc"> </div>*@
                 </div>
             </div>
 
@@ -58,9 +43,9 @@
         </div>
 
     </div>
-
-    @*</div>*@
-
+    <div class="bottom-load">
+        <div class="loader"></div>
+    </div>
 
 
     <div class="cl-add">

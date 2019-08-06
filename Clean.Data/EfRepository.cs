@@ -42,7 +42,7 @@ namespace Clean.Data
             return this._entities.AsNoTracking().ToList();
         }
 
-        public IEnumerable<T> Get(Expression<Func<T, bool>> predicate, int amount = -1)
+        public IEnumerable<T> Get(Expression<Func<T, bool>> predicate, int amount = -1, ItemOrderBy orderBy = ItemOrderBy.Asc)
         {
             var result = this._entities.AsNoTracking();
            
@@ -50,6 +50,10 @@ namespace Clean.Data
                 result = result.Where(predicate);
             if (amount > 0)
                 result = result.Take(amount);
+            if (orderBy == ItemOrderBy.Desc)
+                result = result.OrderByDescending(o=>o.Id);
+
+           var d  = result.ToList();
 
             return result.ToList();
         }

@@ -1,6 +1,7 @@
 ﻿using Clean.Core;
 using Clean.Core.Domain.ApplicationUser;
 using Clean.Core.Domain.ProductItem;
+using Clean.Core.Domain.Temp;
 using Clean.Data;
 using Clean.Services.ApplicationUser;
 using Clean.Services.Localization;
@@ -8,6 +9,7 @@ using Clean.Services.ProductItem;
 using Clean.Web.Localization;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -19,7 +21,7 @@ using System.Web.Mvc;
 namespace Clean.Web.Controllers
 {
     [LanguageSeoCode]
-    public class CommonController : Controller
+    public class CommonController : BaseController
     {
         private AppUserManager UserManager
         {
@@ -92,11 +94,42 @@ namespace Clean.Web.Controllers
 
             ApplicationUser applicationUser = await UserManager.FindAsync(model.UserName, model.Password);
 
-            this._pictureService.InsertPicture(new Picture() { PictureBinary = imgBinary, Description = description, MimeType = mimeType,
-                                                                                                            ApplicationUserMyId = applicationUser.Id });
+            this._pictureService.InsertPicture(new Picture() {
+                PictureBinary = imgBinary,
+                Description = description,
+                MimeType = mimeType,
+                ApplicationUserMyId = applicationUser.Id });
 
             
             return Json(new { StatusCode = 200 }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> AllItemPageProducts(int itemPerPage, int minIdOfItems ) {
+
+            var model = _loginModelService.GetAllLogins().FirstOrDefault();
+
+            ApplicationUser appUser = await UserManager.FindAsync(model.UserName, model.Password);
+
+
+            var pictures = this._pictureService.GetPicturesByUserIdDesc(appUser.Id, itemPerPage, minIdOfItems);
+            
+            var content = RenderPartialViewToString("_Sliced_Item", pictures);
+
+            var isLoaded = pictures.Count() == itemPerPage ? false : true;
+
+            var jsonResult = Json(new
+            {
+                StatusCode = 200,
+                Content = content,
+                AllContantLoaded = isLoaded,
+                MinItemsId =  isLoaded? -1: pictures.Min(p => p.Id)
+            });
+
+            jsonResult.MaxJsonLength = Int32.MaxValue;
+
+            return jsonResult;
+
         }
 
     }

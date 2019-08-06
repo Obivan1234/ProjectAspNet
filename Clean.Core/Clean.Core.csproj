@@ -114,6 +114,7 @@
     <Compile Include="Caching\ICacheManager.cs" />
     <Compile Include="Caching\MemoryCacheManager.cs" />
     <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\ItemOrderBy.cs" />
     <Compile Include="Domain\ApplicationUser\ApplicationUser.cs" />
     <Compile Include="Domain\ApplicationUser\LoginModel.cs" />
     <Compile Include="Domain\ApplicationUser\RegisterModel.cs" />

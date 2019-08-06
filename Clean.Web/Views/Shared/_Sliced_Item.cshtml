@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Clean.Core.Domain.ProductItem.Picture>
+
+
+@foreach (var item in Model)
+{
+    <div class="content-item">
+        <div class="content-item-image">
+            @Html.Raw("<img  src=\"data:image/jpeg;base64," + Convert.ToBase64String(item.PictureBinary) + "\" />")
+        </div>
+        <div class="content-item-hover"></div>
+        <div class="information" hidden>
+            @Html.Raw(item.Description)
+        </div>
+    </div>
+}
