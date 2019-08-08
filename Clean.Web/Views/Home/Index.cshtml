@@ -4,7 +4,7 @@
     ViewBag.Title = "Home Page";
 }
 
-@if (Model != null)
+@if (Model != null && Model.Any())
 {
     @Html.Hidden("minItemsId", Model.Min(p => p.Id));
 }
