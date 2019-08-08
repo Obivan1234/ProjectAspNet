@@ -240,7 +240,7 @@
     <Content Include="Views\Shared\UnAuthorized.cshtml" />
     <Content Include="Views\Shared\_Form_AddNewItem.cshtml" />
     <Content Include="Views\Shared\_Sliced_Item.cshtml" />
-    <Content Include="Views\Shared\Add_New_Inf.cshtml" />
+    <Content Include="Views\Shared\_Add_New_Inf.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
