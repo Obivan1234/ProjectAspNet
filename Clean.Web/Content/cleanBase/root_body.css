@@ -297,11 +297,16 @@
 #upload-file-info {
     display: inline-block;
     position: absolute;
-    overflow-x: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    height: 100%;
     right: 0px;
     left: 130px;
     top: 6px;
     padding-bottom: 15px;
+    padding-right: 8px;
+    margin-right: -19px;
 }
 /* class for loader*/
 .bottom-load {

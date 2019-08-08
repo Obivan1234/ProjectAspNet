@@ -6,7 +6,7 @@
         <div class="img-own">
             <a class='btn btn-default' style="position:relative;">
                 Виберіть файл
-                <input type="file" id="upload" name="imageOwn_1" onchange="$('#upload-file-info').html($(this).val())" accept=".png, .jpg, .jpeg">
+                <input type="file" id="upload" name="imageOwn_1" onchange="$('.addInfo-form  #upload-file-info').html($(this).val())" accept=".png, .jpg, .jpeg" required>
             </a>
             &nbsp;
             <div id="upload-file-info">Файл не вибрано</div>
