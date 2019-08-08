@@ -4,18 +4,25 @@
     ViewBag.Title = "Home Page";
 }
 
-@Html.Hidden("minItemsId",Model.Min(p=>p.Id))
+@if (Model != null)
+{
+    @Html.Hidden("minItemsId", Model.Min(p => p.Id))
+}
+
 
 
 <div class="main_content">
     <div class="user-container">
         <div class="user-inf">
             <div class="user-photo">
-                <img src="~/Content/img/default-user.png" />
+                <img src="@ViewBag.ImageData">
+                <div class="user-photo-hover">
+                    <img src="https://ui-ex.com/images/camera-svg-4.png" />
+                </div>
             </div>
             <div class="user-descr">
-                <span class="user-name">Uhryn Vasyl</span>
-                <span class="user-about">This  shoud be  information about current user</span>
+                <span class="user-name">@ViewBag.UserName</span>
+                <span class="user-about">@ViewBag.Description</span>
                 <span class="btn btn-default user-btn-add">
                     Додати
                 </span>
@@ -26,7 +33,7 @@
 
 
     <div class="content-container">
-       @Html.Partial("_Sliced_Item", Model)
+        @Html.Partial("_Sliced_Item", Model)
 
         <div class="cl-item">
             <div class="cl-item-inf">
@@ -34,8 +41,6 @@
 
                 </div>
                 <div class="cl-item-photo-inf">
-                    @*<div class="item-title"></div>
-                    <div class="desc"> </div>*@
                 </div>
             </div>
 
@@ -50,6 +55,10 @@
 
     <div class="cl-add">
         @Html.Partial("_Form_AddNewItem")
+    </div>
+
+    <div class="cl-add-inf">
+        @Html.Partial("Add_New_Inf")
     </div>
 
 </div>

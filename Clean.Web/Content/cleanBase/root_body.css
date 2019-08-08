@@ -69,12 +69,30 @@
 }
 .user-photo {
     width:160px;
+    position:relative;
 }
 
 .user-photo > img {
     height: 100%;
     width: auto;
     border-radius: 50%;
+}
+
+.user-photo-hover {
+    cursor:pointer;
+    display:none;
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: #a9a0a0;
+    opacity: 0.5;
+}
+
+.user-photo-hover > img {
+    width: 100%;
+    bottom: 0px;
+    position: absolute;
 }
 
 .user-descr {
@@ -92,6 +110,12 @@
     margin-bottom: 15px;
 }
 .user-btn-add {
+    background-color: #3897f0;
+    color: white;
+    font-weight: 600;
+}
+
+.user-btn-add-inf {
     background-color: #3897f0;
     color: white;
     font-weight: 600;
@@ -186,6 +210,18 @@
 
 /*classes for when clik add*/
 .cl-add {
+    position: fixed;
+    background: rgba(0,0,0,0.3);
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    /*display:flex;*/
+    display: none;
+}
+
+.cl-add-inf {
     position: fixed;
     background: rgba(0,0,0,0.3);
     height: 100%;

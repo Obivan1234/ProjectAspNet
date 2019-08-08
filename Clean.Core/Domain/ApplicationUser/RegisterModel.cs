@@ -12,10 +12,11 @@ namespace Clean.Core.Domain.ApplicationUser
         
         public string UserName { get; set; }
 
-        
-        public int Year { get; set; }
+        public string Description { get; set; }
 
-        
+        public byte[] imageData { get; set; }
+
+
         [DataType(DataType.Password)]
         public string Password { get; set; }
 

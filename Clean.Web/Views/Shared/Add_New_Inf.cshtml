@@ -1,0 +1,31 @@
+﻿<div class="cl-add-form">
+    <form class="addImage-form">
+
+        <label>ImageProfile</label>
+
+        <div class="img-own">
+            <a class='btn btn-default' style="position:relative;">
+                Виберіть файл
+                <input type="file" id="upload" name="imageOwn_1" onchange="$('#upload-file-info').html($(this).val())" accept=".png, .jpg, .jpeg">
+            </a>
+            &nbsp;
+            <div id="upload-file-info">Файл не вибрано</div>
+        </div>
+
+        <br />
+
+        <div class="form-group inf-own" style="display:block">
+            <span for="exampleFormControlTextarea2">Description</span>
+            <textarea class="form-control rounded-0" name="ownInf_1" id="exampleFormControlTextarea2" rows="6"></textarea>
+        </div>
+
+        <input type="submit" class="btn btn-primary" />
+        <br />
+        <input type="button" class="btn btn-danger" id="quit" value="Відмінити" />
+    </form>
+
+    <div class="wait-load">
+        <div class="loader"></div>
+    </div>
+
+</div>

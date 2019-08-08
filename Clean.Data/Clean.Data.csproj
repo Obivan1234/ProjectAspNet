@@ -130,6 +130,14 @@
     <Compile Include="Migrations\201908020336022_Add LogIn model to database.Designer.cs">
       <DependentUpon>201908020336022_Add LogIn model to database.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908071601033_Add description to profile.cs" />
+    <Compile Include="Migrations\201908071601033_Add description to profile.Designer.cs">
+      <DependentUpon>201908071601033_Add description to profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908071609326_Add description to profile and image.cs" />
+    <Compile Include="Migrations\201908071609326_Add description to profile and image.Designer.cs">
+      <DependentUpon>201908071609326_Add description to profile and image.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -167,6 +175,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908020336022_Add LogIn model to database.resx">
       <DependentUpon>201908020336022_Add LogIn model to database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908071601033_Add description to profile.resx">
+      <DependentUpon>201908071601033_Add description to profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908071609326_Add description to profile and image.resx">
+      <DependentUpon>201908071609326_Add description to profile and image.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

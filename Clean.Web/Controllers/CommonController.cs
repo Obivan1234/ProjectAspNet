@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using Microsoft.AspNet.Identity;
 using System.Web.Mvc;
 
 namespace Clean.Web.Controllers
@@ -85,31 +86,50 @@ namespace Clean.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<JsonResult> AddNewItem(string img64, string mimeType, string description)
+        public JsonResult AddNewItem(string img64, string mimeType, string description)
         {
             
             byte[] imgBinary = Convert.FromBase64String(img64);
 
-            var model = _loginModelService.GetAllLogins().FirstOrDefault();
-
-            ApplicationUser applicationUser = await UserManager.FindAsync(model.UserName, model.Password);
+            var userId = User.Identity.GetUserId();
 
             this._pictureService.InsertPicture(new Picture() {
                 PictureBinary = imgBinary,
                 Description = description,
                 MimeType = mimeType,
-                ApplicationUserMyId = applicationUser.Id });
+                ApplicationUserMyId = userId });
 
             
             return Json(new { StatusCode = 200 }, JsonRequestBehavior.AllowGet);
         }
 
+
         [HttpPost]
-        public async Task<JsonResult> AllItemPageProducts(int itemPerPage, int minIdOfItems ) {
+        public JsonResult AddNewInf(string img64, string mimeType, string descriptionInfo)
+        {
 
-            var model = _loginModelService.GetAllLogins().FirstOrDefault();
+            byte[] imgBinary = Convert.FromBase64String(img64);
 
-            ApplicationUser appUser = await UserManager.FindAsync(model.UserName, model.Password);
+            var userId = User.Identity.GetUserId();
+
+            ApplicationUser applicationUser = UserManager.FindById(userId);
+
+            applicationUser.Description = descriptionInfo;
+            applicationUser.imageData = imgBinary;
+
+            UserManager.Update(applicationUser);
+
+            return Json(new { StatusCode = 200 }, JsonRequestBehavior.AllowGet);
+        }
+
+
+        [HttpPost]
+        public JsonResult AllItemPageProducts(int itemPerPage, int minIdOfItems ) {
+
+
+            var userId = User.Identity.GetUserId();
+
+            ApplicationUser appUser = UserManager.FindById(userId);
 
 
             var pictures = this._pictureService.GetPicturesByUserIdDesc(appUser.Id, itemPerPage, minIdOfItems);

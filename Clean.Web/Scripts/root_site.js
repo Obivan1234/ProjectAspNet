@@ -297,7 +297,7 @@ $(document).ready(function () {
             //$(window).scrollTop($(document).height());
 
             $.ajax({
-                url: "Common/AllItemPageProducts",
+                url: "/Common/AllItemPageProducts",
                 type: 'post',
                 data: options,
                 success: function (data) {

@@ -10,9 +10,9 @@ namespace Clean.Core.Domain.ApplicationUser
 {
     public class ApplicationUser : IdentityUser
     {
-        public int Year { get; set; }
+        public string Description { get; set; }
 
-        public string MyOwnId { get; set; }
+        public byte[] imageData { get; set; }
 
         public ICollection<Picture> photos { get; set; }
     }

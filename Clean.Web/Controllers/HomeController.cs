@@ -14,6 +14,7 @@ using Clean.Core.Domain.ApplicationUser;
 using Clean.Core.Data;
 using Clean.Services.ProductItem;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using Clean.Services.ApplicationUser;
 using System.Threading.Tasks;
@@ -75,23 +76,43 @@ namespace Clean.Web.Controllers
         #endregion
 
         [UgrinAuthentication]
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
 
             var lang = this._languageService.GetAllLanguages();
 
             var langs = this._langRepository.Get(null, 1);
 
-            var model = _loginModelService.GetAllLogins().FirstOrDefault();
+            var userId = User.Identity.GetUserId();
+            var userName = User.Identity.Name;
 
-            //if (model == null)
-            //{
-            //    return View("~/Views/Account/Register.cshtml");
-            //}
+            ApplicationUser appUser = UserManager.FindById(userId);
 
-            ApplicationUser appUser = await UserManager.FindAsync(model.UserName, model.Password);
+            ViewBag.UserName = userName;
+            ViewBag.Description = appUser.Description;
 
-            var images = this._pictureService.GetPicturesByUserIdDesc(appUser.Id, 8);
+
+            // Get image path  
+            string imgPath = Server.MapPath("~/Content/img/default-user.png");
+            // Convert image to byte array  
+            byte[] byteData = System.IO.File.ReadAllBytes(imgPath);
+            string imreBase64Data;
+
+            if (appUser.imageData == null)
+            {
+                imreBase64Data = Convert.ToBase64String(byteData);
+            }
+            else
+            {
+                imreBase64Data = Convert.ToBase64String(appUser.imageData);
+            }
+            
+            string imgDataURL = string.Format("data:image/png;base64,{0}", imreBase64Data);
+  
+            ViewBag.ImageData = imgDataURL;
+
+
+            var images = this._pictureService.GetPicturesByUserIdDesc(userId, 8);
 
             return View(images);
         }

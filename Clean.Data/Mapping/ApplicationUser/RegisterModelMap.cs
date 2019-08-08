@@ -15,7 +15,8 @@ namespace Clean.Data.Mapping.ApplicationUser
             this.ToTable("RegisterModel", "init");
             this.HasKey(k => k.Id);
             this.Property(p => p.UserName).IsRequired();
-            this.Property(p => p.Year).IsRequired();
+            this.Property(p => p.Description);
+            this.Property(p => p.imageData);
             this.Property(p => p.Password).IsRequired();
             this.Property(p => p.PasswordConfirm).IsRequired();
         }

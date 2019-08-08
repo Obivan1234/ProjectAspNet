@@ -56,6 +56,8 @@ namespace Clean.Web.Controllers
             {
 
                 ApplicationUser user = await UserManager.FindAsync(model.UserName, model.Password);
+
+
                 if (user == null)
                 {
                     //ModelState.AddModelError("", "Неверный логин или пароль.");
@@ -66,9 +68,6 @@ namespace Clean.Web.Controllers
 
                     ClaimsIdentity claim = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
 
-                    loginModelService.InsertLogin(model);
-
-                    // model.
 
                     AuthenticationManager.SignOut();
                     AuthenticationManager.SignIn(new AuthenticationProperties
@@ -86,13 +85,6 @@ namespace Clean.Web.Controllers
 
         public ActionResult Logout()
         {
-            var model = loginModelService.GetAllLogins().First().Id;
-
-            var item = loginModelService.GetById(model);
-
-
-
-            loginModelService.Delete(item);
             AuthenticationManager.SignOut();
 
             return RedirectToAction("Register");
@@ -109,7 +101,7 @@ namespace Clean.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                ApplicationUser user = new ApplicationUser { UserName = model.UserName, Year = model.Year };
+                ApplicationUser user = new ApplicationUser { UserName = model.UserName, Description = model.Description, imageData = model.imageData };
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
