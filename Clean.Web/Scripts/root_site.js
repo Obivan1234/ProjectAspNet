@@ -1,4 +1,14 @@
-﻿
+﻿(function ($) {
+
+    function someFunc() {
+        let d = $(window);
+        return "JQuery";
+    }
+
+})(jQuery);
+
+
+
 $(document).ready(function () {
 
     let options = {
@@ -23,17 +33,22 @@ $(document).ready(function () {
         //when some photo was clicked
         var clickedPhotoContainer = $(".cl-item");
 
-        if (clickedPhotoContainer.is(e.target))
+        if (clickedPhotoContainer.is(e.target)) {
             $(".cl-item").hide();
-
+            $('body').css({ "overflow": "scroll" });
+        }
+            
 
         //when add photo was clicked
         //сутть така що при кліку на додати фото сайт огортується  сірим  беграундом і по верх нього форма 
         //, так от якщо клікнути на сіру форму то знач не на форму і закрити форму
         var clickedAddPhotoContainer = $(".cl-add");
 
-        if (clickedAddPhotoContainer.is(e.target))
+        if (clickedAddPhotoContainer.is(e.target)) {
             $(".cl-add").hide();
+            $('body').css({ "overflow": "scroll" });
+        }
+            
 
     });
 
@@ -86,7 +101,10 @@ $(document).ready(function () {
 
 
     $(".cl-item-btn").on('click', function () {
-        $(".cl-item").css({ "display":"none"});
+        $('.cl-item-inf').scrollTop(0);
+        $(".cl-item").css({ "display": "none" });
+        $('body').css({ "overflow": "scroll" });
+        
     });
 
     $(document).on('click', '.content-item', function () {
@@ -104,11 +122,13 @@ $(document).ready(function () {
         
 
         $(".cl-item").css({ "display": "flex" });
+        $('body').css({ "overflow": "hidden" });
     });
 
 
     $(".user-btn-add").on('click', function () {
         $(".cl-add").css({ "display": "flex" });
+        $('body').css({ "overflow": "hidden" });
     });
 
     
@@ -140,6 +160,7 @@ $(document).ready(function () {
 
     $(".addImage-form > #quit").on('click',function () {
         $(".cl-add").hide();
+        $('body').css({ "overflow": "scroll" });
     });
 
     $(".addImage-form").submit(function (e) {
@@ -284,10 +305,17 @@ $(document).ready(function () {
         });
 
     }
+
+    function isScrolledToBottomOfContainer() {
+        var scrollBottom = $(window).scrollTop() + $(window).height();
+        var offsetTop = $('.main_content').offset().top;
+        var height = $('.main_content').height();
+        return scrollBottom > offsetTop + height;
+    }
     
     function updateContentWhenScrollToBottom() {
 
-        if ($(window).scrollTop() === $(document).height() - $(window).height()) {
+        if (isScrolledToBottomOfContainer()) {
 
             if (isAllContantLoaded)
                 return;
@@ -297,7 +325,7 @@ $(document).ready(function () {
             //$(window).scrollTop($(document).height());
 
             $.ajax({
-                url: "/Common/AllItemPageProducts",
+                url: '/Common/AllItemPageProducts',
                 type: 'post',
                 data: options,
                 success: function (data) {

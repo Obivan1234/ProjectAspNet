@@ -6,7 +6,7 @@
 
 @if (Model != null)
 {
-    @Html.Hidden("minItemsId", Model.Min(p => p.Id))
+    @Html.Hidden("minItemsId", Model.Min(p => p.Id));
 }
 
 
@@ -41,6 +41,8 @@
 
                 </div>
                 <div class="cl-item-photo-inf">
+                    @*<div class="item-title"></div>
+                        <div class="desc"> </div>*@
                 </div>
             </div>
 

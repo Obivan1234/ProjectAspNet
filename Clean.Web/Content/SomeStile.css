@@ -277,4 +277,21 @@ background: #ccc;
 }
 
 
+@media only screen and (max-device-width: 480px) {
+
+    .form-v8-content .form-left {
+        display: none;
+    }
+
+    .form-v8-content .form-right {
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+    }
+
+    .form-v8-content {
+        margin-top: 55px;
+    }
+}
+
+
 

@@ -216,3 +216,36 @@
     color: white;
     cursor: pointer;
 }
+
+@media only screen and (max-device-width: 480px) {
+
+    .icon_one > img {
+        height: 25px;
+    }
+
+    .icon_two {
+        height: 25px;
+        margin: 0 7px;
+    }
+
+    .icon_three > img {
+        height: 25px;
+    }
+
+    .CH_SearchElement {
+        width: 99px;
+        margin-right: 10px;
+    }
+
+    .lang_list {
+        right: 0px;
+    }
+}
+
+
+@media only screen and (max-device-width: 1024px) {
+
+    .lang_list {
+        right: 0px;
+    }
+}
